@@ -1,0 +1,117 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import UserLogin from './components/admin/UserLogin.vue';
+import AdminPanel from './components/admin/admin-panel/AdminPanel.vue';
+import TodayMenu from './components/today-menu/TodayMenu.vue';
+import Home from './components/admin/admin-panel/home/Home.vue';
+import CalendarAdministration from './components/admin/admin-panel/calendar/CalendarAdministration.vue';
+import WeekPlan from './components/admin/admin-panel/calendar/WeekPlan.vue';
+import ChangePassword from './components/admin/ChangePassword.vue';
+import UserRegisteration from './components/admin/UserRegisteration.vue';
+import Users from './components/admin/Users.vue';
+import LandingPage from './components/LandingPage.vue';
+import JWT from './jwt';
+
+Vue.use(VueRouter);
+
+const routes = [
+  {
+    path: '',
+    component: LandingPage
+  },
+  {
+    path: '/mittagstisch',
+    component: TodayMenu
+  },
+  {
+    path: '/login',
+    component: UserLogin,
+    beforeEnter: (to, from, next) => {
+      if (!JWT.isAuthenticated()) {
+        next();
+      } else {
+        next({
+          path: '/admin-panel'
+        });
+      }
+    }
+  },
+  {
+    path: '/admin-panel',
+    component: AdminPanel,
+    beforeEnter: (to, from, next) => {
+      if(JWT.isAuthenticated()){
+        next();
+      }else{
+        next({
+          path: '/login',
+          query: { nextUrl: to.fullPath }
+        });
+      }
+    },
+    children: [
+      { 
+        path: '', 
+        component: Home 
+      },
+      { 
+        path: '/year-calendar', 
+        component: CalendarAdministration,
+        beforeEnter: (to, from, next) => {
+          if(JWT.isAdmin()){
+            next();
+          }else{
+            next({
+              path: '/admin-panel'
+            });
+          }
+        } 
+      },
+      { 
+        path: '/week-menu', 
+        component: WeekPlan,
+        beforeEnter: (to, from, next) => {
+          if(JWT.isAdmin()){
+            next();
+          }else{
+            next({
+              path: '/admin-panel'
+            });
+          }
+        } 
+      },
+      {
+        path: '/change-password',
+        component: ChangePassword
+      },
+      {
+        path: '/user-registeration',
+        component: UserRegisteration,
+        beforeEnter: (to, from, next) => {
+          if (JWT.isAdmin()) {
+            next();
+          } else {
+            next({
+              path: '/admin-panel'
+            });
+          }
+        } 
+      },
+      {
+        path: '/all/users',
+        component: Users,
+        beforeEnter: (to, from, next) => {
+          if (JWT.isAdmin()) {
+            next();
+          } else {
+            next({
+              path: '/admin-panel'
+            });
+          }
+        } 
+      }
+    ]
+  }
+]
+
+export default new VueRouter({routes, mode: 'history'})
