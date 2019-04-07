@@ -16,7 +16,7 @@
           <div class="invalid-feedback" v-if="!$v.pass.required">Passwort kann nicht leer sein!</div>
           <div class="invalid-feedback" v-if="!$v.pass.minLength">Passwort kann nicht weniger als 6 Zeichen sein!</div>
         </div>
-        <button type="submit" @click="submit($event)" class="btn btn-primary">Einloggen</button>
+        <button type="submit" @click.prevent="submit($event)" class="btn btn-primary">Einloggen</button>
       </form>
     </div>
     <div class="col-sm-2 col-md-4 col-lg-4"></div> 

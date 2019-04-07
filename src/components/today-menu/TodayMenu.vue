@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     fetchMeals: function(){
-      axios.get('menu_items/').then(
+      axios.get('menu_items').then(
       response => { 
         this.menuItems = response.data;
       },

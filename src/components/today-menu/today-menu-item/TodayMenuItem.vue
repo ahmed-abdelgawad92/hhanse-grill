@@ -43,12 +43,15 @@ export default {
 } */
 h2{
   font-size: 3.2rem;
+  font-family: 'Arial Black', Times, serif;
 }
 .ingredients{
+  font-family: 'Arial', Times, serif;
   font-size: 2rem;
 }
 .price{
   text-align: right;
+  font-family: 'Berkshire Swash', cursive;
 }
 .not-available div{
   text-decoration: line-through;

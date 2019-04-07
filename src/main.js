@@ -5,7 +5,7 @@ import Vuelidate from 'vuelidate';
 import axios from 'axios';
 import JWT from './jwt';
 
-axios.defaults.baseURL = 'http://localhost:8000/api/';
+axios.defaults.baseURL = 'http://hanse.ahmedelkayaty92.de/api/';
 
 axios.interceptors.request.use(config => {
   config.headers['Authorization'] = JWT.getTokenAuthorization();

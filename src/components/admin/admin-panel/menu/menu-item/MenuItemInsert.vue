@@ -26,7 +26,7 @@
           :class="{'is-invalid': $v.meal.$error}"
           placeholder="Gericht eingeben">
         <div class="invalid-feedback" v-if="!$v.meal.required">Der Preis kann nicht leer sein!</div>
-        <ul class="list-group">
+        <ul class="list-group" v-if="filteredMeals.length">
           <li
             v-for="(m, index) in filteredMeals" 
             :key="index"
@@ -43,11 +43,8 @@
             @focus="ingredientsFilter" 
             @blur="removeList(null)"
             placeholder="Beilage eingeben">
-          <div class="input-group-append">
-            <button class="btn btn-secondary" type="button" @click="addIngredient(ingredient)">hinzufügen</button>
-          </div>
         </div>
-        <ul class="list-group">
+        <ul class="list-group" v-if="filteredIngredients.length">
           <li 
             v-for="(i, index) in filteredIngredients" 
             :key="index"
@@ -55,10 +52,10 @@
             class="list-group-item">{{i.ingredient}}</li>
         </ul>
       </div>
-      <div v-if="selectedIngredients.length > 0">
+      <!-- <div v-if="selectedIngredients.length > 0">
         <h5>Hinzugefügte Beilage</h5>
         <span v-for="(i, index) in selectedIngredients" :key="index" class="badge badge-secondary p-2 m-1">{{i}} <span @click="selectedIngredients.splice(index, 1)" class="span-close">&times;</span></span>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="price">Der Preis</label>
         <div class="input-group">
@@ -88,7 +85,6 @@
       return {
         meal: '',
         ingredient: '',
-        selectedIngredients: [],
         price: '',
         filteredIngredients: [],
         filteredMeals: [],
@@ -96,10 +92,6 @@
       }
     },
     props: ['date', 'meals', 'ingredients'],
-    created: function(){
-      this.filteredIngredients = this.ingredients;
-      this.filteredMeals = this.meals;
-    },
     methods: {
       removeList: function(m = null){
         setTimeout(() => {
@@ -117,11 +109,8 @@
         this.filteredMeals = this.meals.filter(item => item.name.toLowerCase().indexOf(this.meal) !== -1);
       },
       addIngredient: function(ingredient) {
-        if(ingredient && this.selectedIngredients.indexOf(ingredient) === -1){
-          this.selectedIngredients.push(ingredient);
-          this.ingredient = '';
-        }else{
-          this.ingredient = '';
+        if(ingredient){
+          this.ingredient = ingredient;
         }
       },
       addMeal: function(meal) {
@@ -131,7 +120,6 @@
       },
       resetForm: function() {
         this.success = true;
-        this.selectedIngredients = [];
         this.price = '';
         this.ingredient = '';
         this.meal = '';
@@ -144,7 +132,7 @@
           const data = {
             price: this.price,
             meal: this.meal,
-            ingredients: this.selectedIngredients,
+            ingredients: this.ingredient,
             date: this.date
           };
           axios.post('add_menu', data).then(
@@ -186,7 +174,7 @@
   left: 15px;
   z-index: 100;
   max-height: 300px;
-  overflow: scroll;
+  overflow: auto;
 }
 .list-group-item:hover{
   cursor: pointer;
