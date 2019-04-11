@@ -8,7 +8,7 @@
       <h1 class="my-3 text-center">Speiseplan</h1>
       <h1 class="big-header"><span>HH</span>anse Grill</h1>
       <h5 class="my-3 text-center">Das tägliche frische Program vom {{startDate}} bis {{endDate}}</h5>
-      <h5 class="my-3 text-center">Immer ab 11:00 Uhr, solange der Vorrat reicht.</h5>
+      <h5 class="my-3 text-center" style="margin-bottom:50px !important;">Immer ab 11:00 Uhr, solange der Vorrat reicht.</h5>
       <div class="row border-btm" v-for="(plan, index) in weekPlan" :key='index'>
         <div class="col-12 col-sm-3 col-md-2">
           <p>{{plan.day}}</p>

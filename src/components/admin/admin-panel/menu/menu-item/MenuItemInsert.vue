@@ -15,7 +15,28 @@
         </div>
       </div>
     </div>
+    <div class="alert alert-danger" v-if="error">
+      <h4>
+        Fehler Meldung
+        <button type="button" class="close" aria-label="Close" @click="error=''">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </h4>
+      {{error}}
+    </div>
     <form>
+      <div class="form-group">
+        <label for="order">Die Nummer</label>
+        <select class="form-control" v-model.trim="order" @blur="$v.order.$touch()" :class="{'is-invalid': $v.order.$error}">
+          <option value="0">Wählen Sie die Nummer</option>
+          <option value="1">I</option>
+          <option value="2">II</option>
+          <option value="3">III</option>
+          <option value="4">IV</option>
+        </select>
+        <div class="invalid-feedback" v-if="!$v.order.required">Die Nummer kann nicht leer sein!</div>
+        <div class="invalid-feedback" v-if="!$v.order.validNumber">Die Nummer muss zwischen 1 und 4 sein!</div>
+      </div>
       <div class="form-group">
         <label for="meal">Das Gericht</label>
         <input class="form-control" type="text" 
@@ -86,9 +107,11 @@
         meal: '',
         ingredient: '',
         price: '',
+        order: 0,
         filteredIngredients: [],
         filteredMeals: [],
-        success: false
+        success: false,
+        error: ''
       }
     },
     props: ['date', 'meals', 'ingredients'],
@@ -123,9 +146,11 @@
         this.price = '';
         this.ingredient = '';
         this.meal = '';
+        this.order = 0;
         this.$v.$reset();
       },
       submit: function(event) {
+        this.error = '';
         event.target.setAttribute('disabled','disabled');
         this.$v.$touch();
         if(!this.$v.$invalid){
@@ -133,7 +158,8 @@
             price: this.price,
             meal: this.meal,
             ingredients: this.ingredient,
-            date: this.date
+            date: this.date,
+            order: this.order
           };
           axios.post('add_menu', data).then(
             response => {
@@ -147,6 +173,9 @@
             },
             error => {
               console.log(error);
+              if(error.response.data.error){
+                this.error = error.response.data.error;
+              }
               event.target.removeAttribute('disabled');
             }
           );
@@ -162,6 +191,12 @@
       price: {
         required,
         decimal
+      },
+      order: {
+        required,
+        validNumber: function(value){
+          return value > 0 && value < 5;
+        }
       }
     }
   }

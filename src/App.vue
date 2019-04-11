@@ -24,5 +24,11 @@ body {
     flex: 0 0 75% !important;
     max-width: 75% !important;
   }
+  p{
+    font-size: 23px;
+  }
+  div{
+    font-size: 25px;
+  }
 }
 </style>

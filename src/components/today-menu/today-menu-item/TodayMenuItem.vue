@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-9">
           <h2>
-            <span style="font-family:'Times New Roman', Times, serif; font-weight:bold; font-size:3.2rem;">{{romanNumbers[index]}} -</span>
+            <span style="font-family:'Times New Roman', Times, serif; font-weight:bold; font-size:3.2rem;">{{romanNumbers[item.row_order]}} -</span>
             {{item.meal.name | capitalize}}
             <span v-if="!item.available" class="withoutLine">&lt;Ausverkauft&gt;</span>
           </h2>
@@ -21,7 +21,7 @@
 export default {
   data: () => {
     return {
-      romanNumbers: ['I','II','III','IV','V','VI','VII','VIII','IX','X']
+      romanNumbers: ['0','I','II','III','IV','V','VI','VII','VIII','IX','X']
     }
   },
   props: ['item', 'index'],

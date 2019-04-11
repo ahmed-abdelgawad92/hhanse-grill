@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="menu-background" v-if="menuItems.length > 0 && anyAvailable()">
+    <div id="menu-background" v-if="menuItems.length > 0">
       <h1 class="h1">Mittagstisch</h1>
       <div id="menu">
         <div id="menu-item" v-for="(item, index) in menuItems" :key="item.name">

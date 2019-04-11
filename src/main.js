@@ -5,7 +5,8 @@ import Vuelidate from 'vuelidate';
 import axios from 'axios';
 import JWT from './jwt';
 
-axios.defaults.baseURL = 'http://hanse.ahmedelkayaty92.de/api/';
+// axios.defaults.baseURL = 'http://hanse.ahmedelkayaty92.de/api/';
+axios.defaults.baseURL = 'http://localhost:8000/api/';
 
 axios.interceptors.request.use(config => {
   config.headers['Authorization'] = JWT.getTokenAuthorization();
@@ -14,6 +15,7 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use(res => res, error => {
   if(error.response.status == 401){
+    JWT.deleteToken();
     router.push({
       path: '/login',
       query: { nextUrl: router.currentRoute.path }

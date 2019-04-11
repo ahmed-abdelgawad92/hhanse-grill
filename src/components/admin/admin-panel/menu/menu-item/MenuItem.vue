@@ -17,7 +17,7 @@
     <div class="card">
       <div class="card-body">
         <div class="card-title">
-          {{item.meal.name | capitalize}}
+          {{item.row_order}} - {{item.meal.name | capitalize}}
           <span class="subtitle">{{item.price}} &euro;</span>
         </div>
         <p class="card-text">
