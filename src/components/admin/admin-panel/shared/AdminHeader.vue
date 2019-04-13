@@ -17,6 +17,15 @@
         </router-link>
         <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Karte
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <router-link tag="button" to="/karte/add" class="dropdown-item">Neues Gericht hinzufügen</router-link>
+            <router-link tag="button" to="/karte" class="dropdown-item">Die Karte anschauen</router-link>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img style="width:30px; height:30px;" src="../../../../assets/profile.png" alt="">
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">

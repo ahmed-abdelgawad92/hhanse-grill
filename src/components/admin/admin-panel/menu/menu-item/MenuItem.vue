@@ -46,8 +46,8 @@
           </div>
         </template>
         <template v-else>
-          <button v-if="item.available" class="btn btn-secondary" @click="deactivate">deaktivieren</button>
-          <button v-if="!item.available" class="btn btn-primary" @click="activate">aktivieren</button>
+          <button v-if="item.available" class="btn btn-primary" @click="deactivate">deaktivieren</button>
+          <button v-if="!item.available" class="btn btn-danger" @click="activate">aktivieren</button>
         </template>
       </div>
     </div>

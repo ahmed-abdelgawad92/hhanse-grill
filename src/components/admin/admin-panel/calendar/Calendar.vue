@@ -1,5 +1,5 @@
 <template>
-  <date-pick :hasInputElement="false" :weekdays="weekdays" :months="months" v-model="date" @input="returnDate"></date-pick>
+  <date-pick :hasInputElement="false" :weekdays="weekdays" :months="months" v-model="dateSelected" @input="returnDate"></date-pick>
 </template>
 
 <script>
@@ -17,14 +17,23 @@
             'Januar', 'Februar', 'März', 'April',
             'Mai', 'Juni', 'Juli', 'August',
             'September', 'Oktober', 'November', 'Dezember'
-          ]
+          ],
+          dateSelected: ''
         }
     },
     props: ['date'],
     methods: {
       returnDate: function(){
-        this.$emit('dateChange', this.date)
+        this.$router.push({
+          query: {
+            date: this.dateSelected
+          }
+        })
+        this.$emit('dateChange', this.dateSelected);
       }
+    },
+    created(){
+      this.dateSelected = this.date;
     }
   }
 </script>

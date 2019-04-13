@@ -27,6 +27,16 @@ axios.interceptors.response.use(res => res, error => {
 Vue.filter('capitalize', value => {
   return value.split(' ').map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(' ');
 });
+Vue.filter('currency', value => {
+  return (1 * value).toLocaleString('de-DE',{style: 'currency', currency: 'Eur'});
+});
+Vue.filter('articleNum', value => {
+  let num = value + '';
+  while (num.length < 3) {
+    num = '0' + num;
+  }
+  return num;
+});
 
 Vue.use(Vuelidate);
 

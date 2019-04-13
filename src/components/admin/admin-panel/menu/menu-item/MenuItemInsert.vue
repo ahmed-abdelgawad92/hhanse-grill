@@ -81,7 +81,7 @@
         <label for="price">Der Preis</label>
         <div class="input-group">
           <input type="text" class="form-control" 
-            v-model.lazy="price" 
+            v-model.trim="price" 
             @blur="$v.price.$touch()" 
             :class="{'is-invalid': $v.price.$error}"
             placeholder="Preis eingeben">

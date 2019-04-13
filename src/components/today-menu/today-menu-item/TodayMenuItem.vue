@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-9">
           <h2>
-            <span style="font-family:'Times New Roman', Times, serif; font-weight:bold; font-size:3.2rem;">{{romanNumbers[item.row_order]}} -</span>
+            <span>{{romanNumbers[item.row_order]}} -</span>
             {{item.meal.name | capitalize}}
             <span v-if="!item.available" class="withoutLine">&lt;Ausverkauft&gt;</span>
           </h2>
@@ -45,6 +45,11 @@ h2{
   font-size: 3.2rem;
   font-family: 'Arial Black', Times, serif;
 }
+h2 span{
+  font-family:'Times New Roman', Times, serif; 
+  font-weight:bold; 
+  font-size:3.2rem;
+}
 .ingredients{
   font-family: 'Arial', Times, serif;
   font-size: 2rem;
@@ -60,5 +65,36 @@ span.withoutLine{
   text-decoration: none !important;
   display: inline-block;
   padding: 0 0 0 5px;
+}
+
+@media screen and (max-width: 600px){
+  h2, h2 span{
+    font-size: 1rem;
+    font-family: 'Arial Black', Times, serif;
+  }
+  .ingredients{
+    font-family: 'Arial', Times, serif;
+    font-size: 0.5rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 900px){
+  h2, h2 span{
+    font-size: 1.2rem;
+    font-family: 'Arial Black', Times, serif;
+  }
+  .ingredients{
+    font-family: 'Arial', Times, serif;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1200px){
+  h2, h2 span{
+    font-size: 1.5rem;
+    font-family: 'Arial Black', Times, serif;
+  }
+  .ingredients{
+    font-family: 'Arial', Times, serif;
+    font-size: 1rem;
+  }
 }
 </style>

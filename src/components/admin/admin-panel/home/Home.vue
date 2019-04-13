@@ -18,10 +18,15 @@
   import axios from 'axios';
   import MenuItem from '../menu/menu-item/MenuItem.vue';
   export default {
+    computed: { 
+      date: function(){
+        const d = new Date().toLocaleString('de-DE').split(',')[0].split('.');
+        return d[2]+'-'+d[1]+'-'+d[0];
+      }
+    },
     data: () => {
       return {
-        menu_items: [],
-        date: new Date().toISOString().slice(0, 10)
+        menu_items: []
       }
     },
     components: {

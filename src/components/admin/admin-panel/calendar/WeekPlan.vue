@@ -83,7 +83,6 @@
         return (1 * price).toLocaleString('de-DE',{ style: 'currency', currency: 'EUR' });
       },
       addMenuItem: function(date){
-        console.log(date);
         this.$router.push({
           path: '/year-calendar',
           query: {

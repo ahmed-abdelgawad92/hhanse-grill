@@ -29,8 +29,14 @@
         meals: [],
         ingredients: [],
         menuItems: [],
-        date: new Date().toISOString().slice(0, 10)
+        date: ''
       };
+    },
+    computed: {
+      d: function(){
+        const d = new Date().toLocaleString('de-DE').split(',')[0].split('.');
+        return d[2]+'-'+d[1]+'-'+d[0];
+      }
     },
     components: { 
       Calendar,
@@ -65,7 +71,9 @@
     },
     created: function(){
       if(this.$route.query.date != null){
-        this.date = this.$route.query.date;
+        this.date = this.$route.query.date;        
+      }else{
+        this.date = this.d;        
       }
       this.fetchTodayMeals();
       this.fetchAllMealsAndIngredients();

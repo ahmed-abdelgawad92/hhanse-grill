@@ -10,6 +10,8 @@ import ChangePassword from './components/admin/ChangePassword.vue';
 import UserRegisteration from './components/admin/UserRegisteration.vue';
 import Users from './components/admin/Users.vue';
 import LandingPage from './components/LandingPage.vue';
+import AddKarte from './components/admin/karte/AddKarte.vue';
+import Karte from './components/admin/karte/Karte.vue';
 import JWT from './jwt';
 
 Vue.use(VueRouter);
@@ -108,7 +110,33 @@ const routes = [
               path: '/admin-panel'
             });
           }
-        } 
+        }
+      },
+      {
+        path: '/karte/add',
+        component: AddKarte,
+        beforeEnter: (to, from, next) => {
+          if (JWT.isAdmin()) {
+            next();
+          } else {
+            next({
+              path: '/admin-panel'
+            });
+          }
+        }
+      },
+      {
+        path: '/karte',
+        component: Karte,
+        beforeEnter: (to, from, next) => {
+          if (JWT.isAdmin()) {
+            next();
+          } else {
+            next({
+              path: '/admin-panel'
+            });
+          }
+        }
       }
     ]
   }

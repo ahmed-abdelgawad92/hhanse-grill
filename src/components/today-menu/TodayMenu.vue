@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="menu-background" v-if="menuItems.length > 0">
+    <div id="menu-background" v-if="menuItems">
       <h1 class="h1">Mittagstisch</h1>
       <div id="menu">
         <div id="menu-item" v-for="(item, index) in menuItems" :key="item.name">
@@ -44,7 +44,7 @@ import TodayMenuItem from './today-menu-item/TodayMenuItem';
 export default {
   data: () => {
     return {
-      menuItems: []
+      menuItems: undefined
     };
   },
   components: {
@@ -90,7 +90,7 @@ h1{
   background-image: url('../../assets/background.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 #menu{
@@ -106,5 +106,10 @@ h1{
 }
 #menu-item:nth-child(even){
   background-color: rgb(243, 204, 74);
+}
+@media screen and (max-width: 1200px){
+  .h1{
+    font-size: 2rem;
+  }
 }
 </style>
