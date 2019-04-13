@@ -30,4 +30,19 @@
 .card{
   cursor: pointer;
 }
+@media screen and (max-width: 600px){
+  h1{
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 900px){
+  h1{
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1150px){
+  h1{
+    font-size: 2rem;
+  }
+}
 </style>
