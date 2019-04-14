@@ -9,32 +9,7 @@
       </div>
     </div>
     <div v-else id="menu-background">
-      <!-- <div class="container py-5">
-        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-6">
-                  <img src="../../assets/food.jpg" class="w-100 img-thumbnail" alt="...">
-                </div>
-                <div class="col-6">
-                  <h1>Gyrosteller</h1>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-6">
-                  <img src="../../assets/food3.jpg" class="w-100 img-thumbnail" alt="...">
-                </div>
-                <div class="col-6">
-                  <h1>Hamburger</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      
     </div>
   </div>
 </template>
