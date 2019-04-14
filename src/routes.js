@@ -60,7 +60,7 @@ const routes = [
         path: '/year-calendar', 
         component: CalendarAdministration,
         beforeEnter: (to, from, next) => {
-          if(JWT.isAdmin()){
+          if (JWT.isAuthenticated() && JWT.isAdmin()){
             next();
           }else{
             next({
@@ -73,7 +73,7 @@ const routes = [
         path: '/week-menu', 
         component: WeekPlan,
         beforeEnter: (to, from, next) => {
-          if(JWT.isAdmin()){
+          if (JWT.isAuthenticated() && JWT.isAdmin()){
             next();
           }else{
             next({
@@ -84,13 +84,22 @@ const routes = [
       },
       {
         path: '/change-password',
-        component: ChangePassword
+        component: ChangePassword,
+        beforeEnter: (to, from, next) => {
+          if (JWT.isAuthenticated() && JWT.isAdmin()) {
+            next();
+          } else {
+            next({
+              path: '/admin-panel'
+            });
+          }
+        }
       },
       {
         path: '/user-registeration',
         component: UserRegisteration,
         beforeEnter: (to, from, next) => {
-          if (JWT.isAdmin()) {
+          if (JWT.isAuthenticated() && JWT.isAdmin()) {
             next();
           } else {
             next({
@@ -103,7 +112,7 @@ const routes = [
         path: '/all/users',
         component: Users,
         beforeEnter: (to, from, next) => {
-          if (JWT.isAdmin()) {
+          if (JWT.isAuthenticated() && JWT.isAdmin()) {
             next();
           } else {
             next({
@@ -116,7 +125,7 @@ const routes = [
         path: '/karte',
         component: Karte,
         beforeEnter: (to, from, next) => {
-          if (JWT.isAdmin()) {
+          if (JWT.isAuthenticated() && JWT.isAdmin()) {
             next();
           } else {
             next({
@@ -129,7 +138,7 @@ const routes = [
         path: '/karte/add',
         component: AddKarte,
         beforeEnter: (to, from, next) => {
-          if (JWT.isAdmin()) {
+          if (JWT.isAuthenticated() && JWT.isAdmin()) {
             next();
           } else {
             next({
