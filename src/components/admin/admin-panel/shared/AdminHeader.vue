@@ -15,13 +15,13 @@
         <router-link tag="li" to="/week-menu" class="nav-item" active-class="active" exact>
           <a class="nav-link">Wöchentlich-Speiseplan</a>
         </router-link>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li ref="li" class="nav-item" :class="{ 'active': isActive }">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Karte
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link tag="button" to="/karte/add" class="dropdown-item">Neues Gericht hinzufügen</router-link>
-            <router-link tag="button" to="/karte" class="dropdown-item">Die Karte anschauen</router-link>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2" ref="karte_list">
+            <router-link tag="button" @click.native="removeShow" to="/karte/add" class="dropdown-item">Neues Gericht hinzufügen</router-link>
+            <router-link tag="button" @click.native="removeShow" to="/karte" class="dropdown-item">Die Karte anschauen</router-link>
           </div>
         </li>
         <li class="nav-item">
@@ -43,6 +43,17 @@
 
 <script>
   export default {
+    computed: {
+      isActive() {
+        return this.$route.path === '/karte' || this.$route.path === '/karte/add';
+      }
+    },
+    methods: {
+      removeShow(){
+        $(this.$refs.karte_list).removeClass('show');
+        $(this.$refs.li).removeClass('show');      
+      }
+    }
   }
 </script>
 

@@ -113,6 +113,19 @@ const routes = [
         }
       },
       {
+        path: '/karte',
+        component: Karte,
+        beforeEnter: (to, from, next) => {
+          if (JWT.isAdmin()) {
+            next();
+          } else {
+            next({
+              path: '/admin-panel'
+            });
+          }
+        }
+      },
+      {
         path: '/karte/add',
         component: AddKarte,
         beforeEnter: (to, from, next) => {
@@ -125,19 +138,6 @@ const routes = [
           }
         }
       },
-      {
-        path: '/karte',
-        component: Karte,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
-      }
     ]
   }
 ]
