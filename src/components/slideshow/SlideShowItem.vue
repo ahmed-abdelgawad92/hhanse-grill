@@ -4,7 +4,7 @@
       <template v-for="(item, i) in items">
           <div class="col-4" :key="i">
             <!-- <div class="img" :style="{'background-image':'url(http://localhost:8000/'+path(item.photo)+')'}"></div> -->
-            <img class="img" :src="'http://localhost:8000/'+path(item.photo)">
+            <img class="img" :src="$domain+path(item.photo)">
             <div class="container">
               <h1>{{item.meal}} <span>{{item.price | currency}}</span></h1> 
               <h3>{{item.ingredient}}</h3>

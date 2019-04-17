@@ -24,7 +24,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-          <img :src="'http://localhost:8000/'+path" class="img-r" alt="">
+          <img :src="$domain+path" class="img-r" alt="">
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">schließen</button>
         </div>
