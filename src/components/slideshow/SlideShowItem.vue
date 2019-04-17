@@ -1,31 +1,26 @@
 <template>
   <div class="carousel-item" :class="{'active': index == 0}">
-    <div class="row">
-      <template>
-        <div class="col-8 p-4">
-          <div class="img" :style="{'background-image':'url(http://localhost:8000/'+path+')'}"></div>
-          <!-- <img :src="'http://localhost:8000/'+path"> -->
-        </div>
-        <div class="col-4">
-          <div class="container">
-            <h1>Nr. {{item.number | articleNum}}</h1> 
-            <h1>{{item.meal}}</h1>
-            <h3>{{item.ingredient}}</h3>
-            <h1>{{item.price | currency}}</h1>
+      <div class="row">
+      <template v-for="(item, i) in items">
+          <div class="col-4" :key="i">
+            <!-- <div class="img" :style="{'background-image':'url(http://localhost:8000/'+path(item.photo)+')'}"></div> -->
+            <img class="img" :src="'http://localhost:8000/'+path(item.photo)">
+            <div class="container">
+              <h1>{{item.meal}} <span>{{item.price | currency}}</span></h1> 
+              <h3>{{item.ingredient}}</h3>
+            </div>
           </div>
-        </div>
-      </template>
+    </template>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['item', 'index'],
-    computed: {
-      path: function(){
-        let path = 'storage/' + this.item.photo.split('/')[1];
-        return path;
+    props: ['items', 'index'],
+    methods: {
+      path: function(path){
+        return 'storage/' + path.split('/')[1];        
       }
     },
   }
@@ -33,28 +28,33 @@
 
 <style scoped>
 h1, h3{
+  text-align: center;
   color: white;
   text-shadow: 5px 5px 5px black;
 }
 h1:first-of-type{
-  margin-top: 80px;
+  margin-top: 10px;
 }
 h1{
-  font-size: 4rem;
+  font-size: 1.5rem;
+}
+h1 span{
+  margin-left: 10px;
 }
 h3{
-  font-size: 3.5rem;
+  font-size: 1rem;
 }
 .img{
   display: block;
   background-position: center;
+  /* background-color: #cccaca; */
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: content-box !important;
   width: 80%;
   margin: 0 auto;
-  border: 15px solid white;
-  height: 65vh;
+  border: 5px solid white;
+  height: 30vh;
   box-shadow: 10px 10px 20px black, -1px -1px 20px black;
 }
 </style>

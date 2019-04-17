@@ -2,7 +2,7 @@
   <div class="background">
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <slide-show-item v-for="(item, index) in items" :item="item" :index="index" :key="index"></slide-show-item>
+        <slide-show-item v-for="(item, index) in items" :items="item" :index="index" :key="index"></slide-show-item>
       </div>
     </div>
   </div>
@@ -23,10 +23,19 @@
     methods: {
       fetchMeals: function(){
         axios.get('karte/slideshow').then(response => {
-          this.items = response.data.karte;
+          this.items = this.chunk(response.data.karte, 6);
           console.log(response.data.karte);
-          
+          console.log(this.items);
         }).catch(err => {console.log(err)});
+      },
+      chunk: function(arr, len) {
+        var chunks = [],
+        i = 0,
+        n = arr.length;
+        while (i < n) {
+          chunks.push(arr.slice(i, i += len));
+        }
+        return chunks;
       }
     },
     created(){
@@ -37,7 +46,7 @@
 
 <style scoped>
 div.background{
-  padding: 100px;
+  padding: 20px;
   background-image: url('../../assets/background.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;

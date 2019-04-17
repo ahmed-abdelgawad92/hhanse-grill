@@ -18,7 +18,7 @@
   export default {
     data: () => {
       return {
-        items: undefined
+        items: null
       }
     },
     components: {
@@ -27,7 +27,9 @@
     methods: {
       fetchAllItems(){
         axios.get('karte').then(response => {
-          this.items = response.data.karte;
+          if(Object.keys(response.data.karte).length > 0){
+            this.items = response.data.karte;
+          }
         }).catch(err=>{console.log(err);})
       }
     },

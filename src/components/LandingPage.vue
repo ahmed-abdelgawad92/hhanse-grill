@@ -17,6 +17,22 @@
         </router-link>
       </div>
     </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <router-link tag="div" to="/slideshow" class="card">
+          <div class="card-body text-center">
+            <h1>Slideshow</h1>
+          </div>
+        </router-link>
+      </div>
+      <div class="col-6">
+        <router-link tag="div" to="/firstpage" class="card">
+          <div class="card-body text-center">
+            <h1>Erster Bildschirm</h1>
+          </div>
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 

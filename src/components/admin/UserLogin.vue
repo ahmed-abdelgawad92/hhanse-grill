@@ -3,7 +3,7 @@
     <div class="col-sm-2 col-md-4 col-lg-4"></div>
     <div class="col-sm-8 col-md-4 col-lg-4">
       <h3>HHanse Grill Verwaltung</h3>
-      <form>
+      <form class="container">
         <div class="alert alert-danger" v-if="loginError">Benutzername oder Passwort stimmt nicht!</div>
         <div class="form-group">
           <label for="uname">Benutzername</label>

@@ -12,6 +12,7 @@ import Users from './components/admin/Users.vue';
 import LandingPage from './components/LandingPage.vue';
 import AddKarte from './components/admin/karte/AddKarte.vue';
 import Karte from './components/admin/karte/Karte.vue';
+import FirstPage from './components/karte/FirstPage.vue';
 import SlideShow from './components/slideshow/SlideShow.vue';
 import JWT from './jwt';
 
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/slideshow',
     component: SlideShow
+  },
+  {
+    path: '/firstpage',
+    component: FirstPage
   },
   {
     path: '/login',
