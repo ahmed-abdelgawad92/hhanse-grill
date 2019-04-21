@@ -158,7 +158,7 @@
             this.edit = false;
             this.item.number = this.number;
             this.item.meal = this.meal;
-            this.item.ingredients = this.ingredient;
+            this.item.ingredient = this.ingredient;            
             this.item.price = this.price;
             setTimeout(()=>{
               this.success = '';

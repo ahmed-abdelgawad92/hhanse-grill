@@ -1,8 +1,8 @@
 <template>
   <div class="carousel-item" :class="{'active': index == 0}">
-      <div class="row">
+      <div class="row mt-5">
       <template v-for="(item, i) in items">
-          <div class="col-4" :key="i">
+          <div class="col-2" :key="i">
             <!-- <div class="img" :style="{'background-image':'url(http://localhost:8000/'+path(item.photo)+')'}"></div> -->
             <img class="img" :src="$domain+path(item.photo)">
             <div class="container">
@@ -53,8 +53,8 @@ h3{
   box-sizing: content-box !important;
   width: 80%;
   margin: 0 auto;
-  border: 5px solid white;
-  height: 30vh;
-  box-shadow: 10px 10px 20px black, -1px -1px 20px black;
+  /* border: 5px solid white; */
+  height: 20vh;
+  /* box-shadow: 10px 10px 20px black, -1px -1px 20px black; */
 }
 </style>

@@ -33,6 +33,22 @@
         </router-link>
       </div>
     </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <router-link tag="div" to="/secondpage" class="card">
+          <div class="card-body text-center">
+            <h1>Zweiter Bildschirm</h1>
+          </div>
+        </router-link>
+      </div>
+      <div class="col-6">
+        <router-link tag="div" to="/thirdpage" class="card">
+          <div class="card-body text-center">
+            <h1>Dritter Bildschirm</h1>
+          </div>
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 

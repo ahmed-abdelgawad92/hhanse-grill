@@ -46,15 +46,13 @@
           'Fisch'
         ],
         pane1: [
-          'Klassiker',
-          'Fisch',
-          'Croque2',
+          'Snacks',
         ],
         pane2: [
-          'Croque1',
+          'Salate',
         ],
         pane3: [
-          'Beilagen',
+          'Getränke',
         ]
       }
     },
@@ -65,16 +63,6 @@
       fetchKarte: function(){
         axios.get('karte').then(response => {
           this.categories = response.data.karte;
-          // this.categories['Croque1'][0] = 'Croque'; 
-          // this.categories['Croque2'][0] = 'Croque'; 
-          this.categories.Croque1 = [];
-          this.categories.Croque2 = [];
-          this.categories.Croque1.push('Croque');
-          this.categories.Croque2.push('Croque');
-          this.categories.Croque1.push(this.chunk(this.categories['Croque'][1],19)[0]);
-          this.categories.Croque2.push(this.chunk(this.categories['Croque'][1],19)[1]);
-          console.log(this.categories['Croque']);
-          
         }).catch(err => {console.log(err)});
       },
       chunk: function(arr, len) {

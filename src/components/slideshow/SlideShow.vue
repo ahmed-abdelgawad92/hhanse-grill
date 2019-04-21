@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleInterval" ref="modal" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <slide-show-item v-for="(item, index) in items" :items="item" :index="index" :key="index"></slide-show-item>
       </div>
@@ -23,7 +23,7 @@
     methods: {
       fetchMeals: function(){
         axios.get('karte/slideshow').then(response => {
-          this.items = this.chunk(response.data.karte, 6);
+          this.items = this.chunk(response.data.karte, 12);
           console.log(response.data.karte);
           console.log(this.items);
         }).catch(err => {console.log(err)});
@@ -40,6 +40,13 @@
     },
     created(){
       this.fetchMeals();
+      setTimeout(()=>{
+        let modal = this.$refs.modal;
+        $(modal).carousel({
+            interval: 10000,
+            pause: false
+        })
+      }, 3000);
     }
   }
 </script>

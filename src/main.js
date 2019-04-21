@@ -5,8 +5,8 @@ import Vuelidate from 'vuelidate';
 import axios from 'axios';
 import JWT from './jwt';
 
-axios.defaults.baseURL = 'http://hanse.ahmedelkayaty92.de/api/';
-// axios.defaults.baseURL = 'http://localhost:8000/api/';
+// axios.defaults.baseURL = 'https://api.hhansegrill-halal.de/api/';
+axios.defaults.baseURL = 'http://localhost:8000/api/';
 
 axios.interceptors.request.use(config => {
   config.headers['Authorization'] = JWT.getTokenAuthorization();
@@ -18,7 +18,7 @@ axios.interceptors.response.use(res => res, error => {
     JWT.deleteToken();
     router.push({
       path: '/login',
-      query: { nextUrl: router.currentRoute.path }
+      query: { nextUrl: router.currentRoute.path == '/login' ? '/admin-panel' : router.currentRoute.path }
     });
   }
   throw error;
@@ -38,8 +38,9 @@ Vue.filter('articleNum', value => {
   return num;
 });
 
-Vue.prototype.$domain = 'http://hanse.ahmedelkayaty92.de/';
-// Vue.prototype.$domain = 'http://localhost:8000/';
+// Vue.prototype.$domain = 'https://api.hhansegrill-halal.de/';
+// Vue.prototype.$domain = 'http://hanse.ahmedelkayaty92.de/';
+Vue.prototype.$domain = 'http://localhost:8000/';
 
 Vue.use(Vuelidate);
 

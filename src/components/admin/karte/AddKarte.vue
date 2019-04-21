@@ -38,6 +38,7 @@
             <option value="Beilagen">Beilagen</option>
             <option value="Salate">Salate</option>
             <option value="Fisch">Fisch</option>
+            <option value="Getränke">Getränke</option>
           </select>
           <div class="invalid-feedback" v-if="!$v.category.required">Die Abteilung kann nicht leer sein</div>
         </div>
