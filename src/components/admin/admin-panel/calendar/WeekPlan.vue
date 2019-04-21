@@ -17,13 +17,13 @@
           <ol v-if="plan.meals.length > 0">
             <li v-for="(item, index) in plan.meals" :key="index">
               <div class="row">
-                <div class="col-9">
+                <div class="col-10">
                   <strong>{{item.meal.name | capitalize}}</strong>
                   <template v-if="item.ingredients.length > 0">
                     , {{getIngredient(item.ingredients)}}
                   </template>
                 </div>
-                <div class="col-3 text-right">
+                <div class="col-2 text-right">
                   <span>{{showPrice(item.price)}}</span>
                 </div>
               </div>

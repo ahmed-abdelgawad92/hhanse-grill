@@ -25,10 +25,10 @@ body {
     max-width: 75% !important;
   }
   p{
-    font-size: 23px;
+    font-size: 18px;
   }
   div{
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 </style>

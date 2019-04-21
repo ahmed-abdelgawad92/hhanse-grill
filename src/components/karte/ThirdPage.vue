@@ -46,10 +46,10 @@
           'Fisch'
         ],
         pane1: [
-          'Snacks',
+          'Salate',
         ],
         pane2: [
-          'Salate',
+          'Snacks',
         ],
         pane3: [
           'Getränke',
