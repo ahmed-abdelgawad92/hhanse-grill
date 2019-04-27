@@ -3,11 +3,11 @@
     <div class="min-w-70 mx-auto">
       <calendar :date="date" @dateChange="retrieveMenuItems"></calendar>
     </div>
-    <div class="row mt-3">
-      <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6 mt-4">
         <app-menu @getAllIngredientsAndMeals="fetchAllMealsAndIngredients(true)" :items="menuItems" :date="date"></app-menu>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-4">
         <app-menu-insert @getAllIngredientsAndMeals="fetchAllMealsAndIngredients(true)" :date="date" :meals="meals" :ingredients="ingredients"></app-menu-insert>
       </div>
     </div>

@@ -20,7 +20,7 @@
         <div class="card-title">
           <template v-if="edit">
             <div class="row">
-              <div class="col-2">
+              <div class="col-6">
                 <select v-model="number" class="form-control" :class="{'is-invalid': $v.number.$error}" @blur="$v.number.$touch()">
                   <option value="1">I</option>
                   <option value="2">II</option>
@@ -28,11 +28,11 @@
                   <option value="4">IV</option>
                 </select>
               </div>
-              <div class="col-8">
-                <input type="text" v-model.trim="meal" class="form-control" @blur="$v.meal.$touch()" :class="{'is-invalid': $v.meal.$error}">
-              </div>
-              <div class="col-2">
+              <div class="col-6">
                 <input type="text" v-model.trim="price" class="form-control" @blur="$v.price.$touch()" :class="{'is-invalid': $v.price.$error}">
+              </div>
+              <div class="col-12 mt-2">
+                <input type="text" v-model.trim="meal" class="form-control" @blur="$v.meal.$touch()" :class="{'is-invalid': $v.meal.$error}">
               </div>
             </div>
           </template>
