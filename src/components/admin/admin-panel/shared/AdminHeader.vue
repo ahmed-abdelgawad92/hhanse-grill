@@ -15,13 +15,22 @@
         <router-link tag="li" to="/week-menu" class="nav-item" active-class="active" exact>
           <a class="nav-link">Wöchentlich-Speiseplan</a>
         </router-link>
-        <li ref="li" class="nav-item" :class="{ 'active': isActive }">
+        <li ref="li_karte" class="nav-item" :class="{ 'active': isActiveKarte }">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Karte
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown2" ref="karte_list">
-            <router-link tag="button" @click.native="removeShow" to="/karte/add" class="dropdown-item">Neues Gericht hinzufügen</router-link>
-            <router-link tag="button" @click.native="removeShow" to="/karte" class="dropdown-item">Die Karte anschauen</router-link>
+            <router-link @click.native="removeShow" to="/karte/add" class="dropdown-item">Neues Gericht hinzufügen</router-link>
+            <router-link @click.native="removeShow" to="/karte" class="dropdown-item">Die Karte anschauen</router-link>
+          </div>
+        </li>
+        <li ref="li_client" class="nav-item" :class="{ 'active': isActiveClient }">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Kundenseite
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2" ref="client_list">
+            <router-link @click.native="removeShow" to="/client/photo/add" class="dropdown-item">Neues Foto hinzufügen</router-link>
+            <router-link @click.native="removeShow" to="/client/photos" class="dropdown-item">Die Fotos anschauen</router-link>
           </div>
         </li>
         <li class="nav-item">
@@ -29,10 +38,10 @@
             <img style="width:30px; height:30px;" src="../../../../assets/profile.png" alt="">
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link tag="button" to="/user-registeration" class="dropdown-item">Neuer Benutzer erstellen</router-link>
-            <router-link tag="button" to="/all/users" class="dropdown-item">Alle Benutzer zeigen</router-link>
+            <router-link to="/user-registeration" class="dropdown-item">Neuer Benutzer erstellen</router-link>
+            <router-link to="/all/users" class="dropdown-item">Alle Benutzer zeigen</router-link>
             <div class="dropdown-divider"></div>
-            <router-link tag="button" to="/change-password" class="dropdown-item">Passwort verändern</router-link>
+            <router-link to="/change-password" class="dropdown-item">Passwort verändern</router-link>
             <button class="dropdown-item" @click="$emit('logout')">Ausloggen</button>
           </div>
         </li>
@@ -44,14 +53,19 @@
 <script>
   export default {
     computed: {
-      isActive() {
+      isActiveKarte() {
         return this.$route.path === '/karte' || this.$route.path === '/karte/add';
-      }
+      },
+      isActiveClient() {
+        return this.$route.path === '/client/photo/add' || this.$route.path === '/client/photos';
+      },
     },
     methods: {
       removeShow(){
         $(this.$refs.karte_list).removeClass('show');
         $(this.$refs.li).removeClass('show');      
+        $(this.$refs.client_list).removeClass('show');
+        $(this.$refs.li_client).removeClass('show');      
       }
     }
   }

@@ -1,11 +1,7 @@
 <template>
   <div class="container mt-3">
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-        <calendar :date="date" @dateChange="retrieveMenuItems"></calendar>
-      </div>
-      <div class="col-2"></div>
+    <div class="min-w-70 mx-auto">
+      <calendar :date="date" @dateChange="retrieveMenuItems"></calendar>
     </div>
     <div class="row mt-3">
       <div class="col-md-6">
@@ -82,5 +78,9 @@
 </script>
 
 <style scoped>
-
+@media screen and (min-width: 600px){
+  .min-w-70{
+    width: 70% !important;
+  } 
+}
 </style>
