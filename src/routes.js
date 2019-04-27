@@ -17,7 +17,6 @@ import SecondPage from './components/karte/SecondPage.vue';
 import ThirdPage from './components/karte/ThirdPage.vue';
 import SlideShow from './components/slideshow/SlideShow.vue';
 import ClientPhotosAll from './components/admin/client-page/ClientPhotosAll.vue';
-import ClientPhotoAdd from './components/admin/client-page/ClientPhotoAdd.vue';
 import JWT from './jwt';
 
 Vue.use(VueRouter);
@@ -159,19 +158,6 @@ const routes = [
       {
         path: '/karte/add',
         component: AddKarte,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
-      },
-      {
-        path: '/client/photo/add',
-        component: ClientPhotoAdd,
         beforeEnter: (to, from, next) => {
           if (JWT.isAuthenticated() && JWT.isAdmin()) {
             next();

@@ -29,7 +29,6 @@
             Kundenseite
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown2" ref="client_list">
-            <router-link @click.native="removeShow" to="/client/photo/add" class="dropdown-item">Neues Foto hinzufügen</router-link>
             <router-link @click.native="removeShow" to="/client/photos" class="dropdown-item">Die Fotos anschauen</router-link>
           </div>
         </li>
