@@ -20,7 +20,20 @@ import ClientPhotosAll from './components/admin/client-page/ClientPhotosAll.vue'
 import JWT from './jwt';
 
 Vue.use(VueRouter);
-
+const checkAuthAdmin = (to, from, next) => {
+  if (!JWT.isAuthenticated()) {
+    next({
+      path: '/login',
+      query: { nextUrl: to.fullPath }
+    });
+  } else if (!JWT.isAdmin()) {
+    next({
+      path: '/admin-panel'
+    });
+  } else {
+    next();
+  }
+}; 
 const routes = [
   {
     path: '',
@@ -80,106 +93,42 @@ const routes = [
       { 
         path: '/year-calendar', 
         component: CalendarAdministration,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()){
-            next();
-          }else{
-            next({
-              path: '/admin-panel'
-            });
-          }
-        } 
+        beforeEnter: checkAuthAdmin
       },
       { 
         path: '/week-menu', 
         component: WeekPlan,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()){
-            next();
-          }else{
-            next({
-              path: '/admin-panel'
-            });
-          }
-        } 
+        beforeEnter: checkAuthAdmin
       },
       {
         path: '/change-password',
         component: ChangePassword,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
+        beforeEnter: checkAuthAdmin
       },
       {
         path: '/user-registeration',
         component: UserRegisteration,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        } 
+        beforeEnter: checkAuthAdmin 
       },
       {
         path: '/all/users',
         component: Users,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
+        beforeEnter: checkAuthAdmin
       },
       {
         path: '/karte',
         component: Karte,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
+        beforeEnter: checkAuthAdmin
       },
       {
         path: '/karte/add',
         component: AddKarte,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
+        beforeEnter: checkAuthAdmin
       },
       {
         path: '/client/photos',
         component: ClientPhotosAll,
-        beforeEnter: (to, from, next) => {
-          if (JWT.isAuthenticated() && JWT.isAdmin()) {
-            next();
-          } else {
-            next({
-              path: '/admin-panel'
-            });
-          }
-        }
+        beforeEnter: checkAuthAdmin
       },
     ]
   }
