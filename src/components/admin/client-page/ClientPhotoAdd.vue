@@ -52,6 +52,7 @@
             data.append('photo', this.photo);
             axios.post('client/photo/upload',data).then(response => {
                this.success = response.data.success;
+               this.$emit('fetchAll');
                setTimeout(()=>{
                   this.success='';
                },3000);
