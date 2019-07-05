@@ -20,6 +20,7 @@ import ClientPhotosAll from './components/admin/client-page/ClientPhotosAll.vue'
 import JWT from './jwt';
 
 Vue.use(VueRouter);
+
 const checkAuthAdmin = (to, from, next) => {
   if (!JWT.isAuthenticated()) {
     next({

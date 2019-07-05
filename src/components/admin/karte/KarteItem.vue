@@ -19,7 +19,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{item.meal | capitalize}}</h5>
+          <h5 class="modal-title">{{item.meal}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -52,7 +52,7 @@
                :class="{'is-invalid':$v.meal.$error}"
                placeholder="Gericht">
       </div>
-      <strong v-else>{{item.meal | capitalize}}</strong>
+      <strong v-else>{{item.meal}}</strong>
     </div>
     <div class="col-3 text-muted">
       <div class="form-group" v-if="edit">
@@ -61,7 +61,7 @@
                placeholder="Beilage oder Zutaten">
       </div>
       <template v-else>
-        {{item.ingredient | capitalize}}
+        {{item.ingredient}}
       </template>
     </div>
     <div class="col-1">
@@ -94,7 +94,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Sind Sie sicher um das Gericht <strong>({{item.number | articleNum}} {{item.meal | capitalize}})</strong> zu löschen?</p>
+              <p>Sind Sie sicher um das Gericht <strong>({{item.number | articleNum}} {{item.meal}})</strong> zu löschen?</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">abrechen</button>
