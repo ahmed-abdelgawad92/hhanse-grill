@@ -59,6 +59,9 @@
         <input type="text" class="form-control" 
                v-model.trim="ingredient"
                placeholder="Beilage oder Zutaten">
+        <br>
+        <label for="">Reihenfolge</label>
+        <input type="text" class="form-control" v-model.trim="order" placeholder="Reihenfolge">
       </div>
       <template v-else>
         {{item.ingredient}}
@@ -130,6 +133,7 @@
         ingredient: '',
         price: '',
         number: '',
+        order: '',
         edit: false,
         success: '',
         error: ''
@@ -152,6 +156,7 @@
             meal: this.meal, 
             ingredients: this.ingredient, 
             price: this.price, 
+            item_order: this.order, 
           };
           axios.put('karte/edit/'+this.item.id, data).then(response => {
             this.success = response.data.success;
@@ -160,6 +165,7 @@
             this.item.meal = this.meal;
             this.item.ingredient = this.ingredient;            
             this.item.price = this.price;
+            this.item.order_item = this.order;
             setTimeout(()=>{
               this.success = '';
             }, 3000);
@@ -221,6 +227,7 @@
       this.ingredient = this.item.ingredient;
       this.price = this.item.price;
       this.number = this.item.number;
+      this.order = this.item.item_order;
     },
     validations: {
       number: {

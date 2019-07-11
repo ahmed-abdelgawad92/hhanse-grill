@@ -6,11 +6,13 @@
           <div :key="index" class="col-12 col-md-6 col-lg-6 col-xl-4">
             <div class="px-2">
               <karte-category :category="category"></karte-category>
-              <karte-category v-if="index == 2" :category="klassiker"></karte-category>
             </div>
           </div>
         </template>
         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+          <div class="px-2">
+            <karte-category :category="klassiker"></karte-category>
+          </div>
         </div>
       </div>
     </div>
@@ -20,6 +22,7 @@
 <script>
   import axios from 'axios';
   import KarteCategory from './KarteCategory.vue';
+  import KarteItem from './KarteItem.vue';
   export default {
     data: () => {
       return {
@@ -28,11 +31,12 @@
         categoryIndex: [
           'Super-Spar-Menüs',
           'Grillgerichte'
-        ]
+        ],
       }
     },
     components: {
-      KarteCategory
+      KarteCategory,
+      KarteItem
     },
     methods: {
       fetchKarte: function(){

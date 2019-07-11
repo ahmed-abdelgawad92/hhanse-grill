@@ -21,6 +21,20 @@
             <template v-if="categories[category] != undefined">
               <karte-category :category="categories[category]"></karte-category>
             </template>
+            <div class="row bg-white p-2">
+              <ul class="col-6">
+                <li style="list-style: none"><strong>Zusatzstoffe:</strong></li>
+                <li>01. Sorbinsäure</li>
+                <li>02. Benzolsäure</li>
+                <li>12. Antioxidationsmittel</li>
+              </ul>
+              <ul class="col-6">
+                <li>15. Koffeinhaltig</li>
+                <li>11. Konservierungsstoffe</li>
+                <li>14. Farbstoff</li>
+                <li>17. mit Geschmacksverstärker</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -46,10 +60,10 @@
           'Fisch'
         ],
         pane1: [
-          'Salate',
+          'Snacks',
         ],
         pane2: [
-          'Snacks',
+          'Salate',
         ],
         pane3: [
           'Getränke',
