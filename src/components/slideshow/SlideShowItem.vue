@@ -51,10 +51,10 @@ h3{
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: content-box !important;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   /* border: 5px solid white; */
-  height: 20vh;
+  height: 25vh;
   /* box-shadow: 10px 10px 20px black, -1px -1px 20px black; */
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <div id="carouselExampleInterval" ref="modal" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleInterval" ref="modal" class="carousel slide" data-interval="25000" data-ride="carousel">
       <div class="carousel-inner">
         <slide-show-item v-for="(item, index) in items" :items="item" :index="index" :key="index"></slide-show-item>
       </div>
@@ -43,7 +43,6 @@
       setTimeout(()=>{
         let modal = this.$refs.modal;
         $(modal).carousel({
-            interval: 10000,
             pause: false
         })
       }, 3000);
@@ -53,7 +52,7 @@
 
 <style scoped>
 div.background{
-  padding: 20px;
+  padding: 70px 20px 20px;
   background-image: url('../../assets/background.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;

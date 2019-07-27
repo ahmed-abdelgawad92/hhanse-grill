@@ -21,7 +21,7 @@
             <template v-if="categories[category] != undefined">
               <karte-category :category="categories[category]"></karte-category>
             </template>
-            <div class="row bg-white p-2">
+            <div class="row p-2" style="background-color: rgb(231, 40, 40); color: white;">
               <ul class="col-6">
                 <li style="list-style: none"><strong>Zusatzstoffe:</strong></li>
                 <li>01. Sorbinsäure</li>

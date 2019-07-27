@@ -21,6 +21,10 @@
             <template v-if="categories[category] != undefined">
               <karte-category :category="categories[category]"></karte-category>
             </template>
+            <ul class="row py-3" style="background-color: rgb(243, 204, 74);">
+              <li>Alle Croques enthalten Gluten, Milch</li>
+              <li>Zu jedem Croque gibt es Salat und Käse</li>
+            </ul>
           </div>
         </div>
       </div>

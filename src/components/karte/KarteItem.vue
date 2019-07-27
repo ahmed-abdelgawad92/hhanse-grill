@@ -13,12 +13,14 @@
 
 <style scoped>
 .row{
-  background-color: rgb(255, 255, 255) !important;
+  /* background-color: rgb(255, 255, 255) !important; */
+  background-color: rgb(243, 204, 74) !important;
 }
 .white{
   /* background-color: #e3e3e3 !important;  */
   /* background-color: #bfff2b !important;  */
-  background-color: #a56836 !important; 
+  /* background-color: #a56836 !important;  */
+  background-color: rgb(231, 40, 40) !important;
   /* background-color: #8f592d !important;  */
   color: white;
   text-shadow: 1px 1px black;
