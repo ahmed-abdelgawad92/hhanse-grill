@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div id="menu-background" v-if="menuItems">
+    <div id="menu-background" style="position: relative" v-if="menuItems">
       <h1 class="h1">Mittagstisch</h1>
       <div id="menu">
         <div id="menu-item" v-for="(item, index) in menuItems" :key="item.name">
           <today-menu-item :item="item" :index="index"></today-menu-item>
         </div>
       </div>
+      <logo></logo>
     </div>
     <div v-else id="menu-background">
       
@@ -16,6 +17,7 @@
 <script>
 import axios from 'axios';
 import TodayMenuItem from './today-menu-item/TodayMenuItem';
+import Logo from '../karte/logo';
 export default {
   data: () => {
     return {
@@ -23,7 +25,8 @@ export default {
     };
   },
   components: {
-    todayMenuItem: TodayMenuItem
+    todayMenuItem: TodayMenuItem,
+    Logo
   },
   methods: {
     fetchMeals: function(){

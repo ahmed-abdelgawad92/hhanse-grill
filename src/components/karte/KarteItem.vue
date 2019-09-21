@@ -14,7 +14,7 @@
 <style scoped>
 .row{
   /* background-color: rgb(255, 255, 255) !important; */
-  background-color: rgb(243, 204, 74) !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 .white{
   /* background-color: #e3e3e3 !important;  */
@@ -27,6 +27,7 @@
 }
 .details{
   font-size: 0.8rem;
+  font-weight: 800;
 }
 .meal-name{
   font-size: 20px;

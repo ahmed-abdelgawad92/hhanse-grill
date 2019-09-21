@@ -1,5 +1,5 @@
 <template>
-  <div id="background">
+  <div id="background" style="position: relative;">
     <div class="px-4">
       <div class="row" v-if="categories">
         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
@@ -39,12 +39,14 @@
         </div>
       </div>
     </div>
+    <logo></logo>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
   import KarteCategory from './KarteCategory.vue';
+  import Logo from './logo.vue';
   export default {
     data: () => {
       return {
@@ -71,7 +73,8 @@
       }
     },
     components: {
-      KarteCategory
+      KarteCategory,
+      Logo
     },
     methods: {
       fetchKarte: function(){

@@ -1,8 +1,11 @@
 <template>
-  <div class="background">
-    <div id="carouselExampleInterval" ref="modal" class="carousel slide" data-interval="25000" data-ride="carousel">
+  <div class="background" data-new-version="1.0">
+    <div id="carouselExampleInterval" ref="modal" class="carousel slide" data-interval="25000" data-pause="false" data-ride="carousel">
       <div class="carousel-inner">
         <slide-show-item v-for="(item, index) in items" :items="item" :index="index" :key="index"></slide-show-item>
+        <div class="carousel-item">
+          <h1 class="text-center pt-5 mt-5" style="color: white; font-size:5rem;">www.hhansegrill-halal.de</h1>
+        </div>
       </div>
     </div>
   </div>
@@ -38,14 +41,14 @@
         return chunks;
       }
     },
+    mounted(){
+      $('.carousel').carousel()
+    },
     created(){
       this.fetchMeals();
-      setTimeout(()=>{
-        let modal = this.$refs.modal;
-        $(modal).carousel({
-            pause: false
-        })
-      }, 3000);
+      // $('.carousel').carousel({
+      //     pause: false
+      // })
     }
   }
 </script>
