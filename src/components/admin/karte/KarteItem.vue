@@ -51,6 +51,18 @@
                @blur="$v.meal.$touch()"
                :class="{'is-invalid':$v.meal.$error}"
                placeholder="Gericht">
+        <br>
+        <label for="">Vegetarisch</label> <br>
+        <label>
+          <input type="radio" value="1" v-model="vegie">
+          Ja
+        </label>
+        &nbsp;
+        &nbsp;
+        <label>
+          <input type="radio" value="0" v-model="vegie">
+          Nein
+        </label>
       </div>
       <strong v-else>{{item.meal}}</strong>
     </div>
@@ -134,6 +146,7 @@
         price: '',
         number: '',
         order: '',
+        vegie: 0,
         edit: false,
         success: '',
         error: ''
@@ -157,6 +170,7 @@
             ingredients: this.ingredient, 
             price: this.price, 
             item_order: this.order, 
+            vegie: this.vegie
           };
           axios.put('karte/edit/'+this.item.id, data).then(response => {
             this.success = response.data.success;
@@ -166,6 +180,7 @@
             this.item.ingredient = this.ingredient;            
             this.item.price = this.price;
             this.item.order_item = this.order;
+            this.item.vegie = this.vegie;
             setTimeout(()=>{
               this.success = '';
             }, 3000);

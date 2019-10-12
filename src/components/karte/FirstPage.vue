@@ -104,6 +104,7 @@
   background-image: url('../../assets/background.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  background: black;
   min-height: 100vh;
   width: 100%;
 }

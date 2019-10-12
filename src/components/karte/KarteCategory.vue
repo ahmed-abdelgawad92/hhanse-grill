@@ -18,7 +18,7 @@
 
 <style scoped>
 .item:nth-child(odd){
-  background-color: #eee;
+  /* background-color: #eee; */
 }
 .category-head{
   padding-bottom: 20px;

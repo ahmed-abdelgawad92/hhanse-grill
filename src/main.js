@@ -4,6 +4,13 @@ import router from './routes';
 import Vuelidate from 'vuelidate';
 import axios from 'axios';
 import JWT from './jwt';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faLeaf)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 axios.defaults.baseURL = 'https://api.hhansegrill-halal.de/api/';
 // axios.defaults.baseURL = 'http://hanse.ahmedelkayaty92.de/api/';
