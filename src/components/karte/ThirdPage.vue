@@ -1,5 +1,5 @@
 <template>
-  <div id="background" style="position: relative;">
+  <div id="background" style="position: relative; cursor: none !important;">
     <div class="px-4">
       <div class="row" v-if="categories">
         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
@@ -27,6 +27,10 @@
                 <li>01. Sorbinsäure</li>
                 <li>02. Benzolsäure</li>
                 <li>12. Antioxidationsmittel</li>
+                <li>
+                  <font-awesome-icon  style="color: rgb(89, 255, 36)" icon="leaf"/> 
+                  Vegetarisch
+                </li>
               </ul>
               <ul class="col-6">
                 <li>15. Koffeinhaltig</li>

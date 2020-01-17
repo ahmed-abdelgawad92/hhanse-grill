@@ -22,6 +22,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown2" ref="karte_list">
             <router-link @click.native="removeShow" to="/karte/add" class="dropdown-item">Neues Gericht hinzufügen</router-link>
             <router-link @click.native="removeShow" to="/karte" class="dropdown-item">Die Karte anschauen</router-link>
+            <router-link @click.native="removeShow" to="/generate_paper_menu" class="dropdown-item">Die Papier-Karte</router-link>
           </div>
         </li>
         <li ref="li_client" class="nav-item" :class="{ 'active': isActiveClient }">

@@ -1,5 +1,5 @@
 <template>
-  <div class="background" data-new-version="1.0">
+  <div class="background" style="cursor: none !important; padding: 0 !important;" data-new-version="1.0">
     <div id="carouselExampleInterval" ref="modal" class="carousel slide" data-interval="25000" data-pause="false" data-ride="carousel">
       <div class="carousel-inner">
         <slide-show-item v-for="(item, index) in items" :items="item" :index="index" :key="index"></slide-show-item>
@@ -26,7 +26,7 @@
     methods: {
       fetchMeals: function(){
         axios.get('karte/slideshow').then(response => {
-          this.items = this.chunk(response.data.karte, 12);
+          this.items = this.chunk(response.data.karte, 6);
           console.log(response.data.karte);
           console.log(this.items);
         }).catch(err => {console.log(err)});
@@ -56,7 +56,8 @@
 <style scoped>
 div.background{
   padding: 70px 20px 20px;
-  background-image: url('../../assets/background.jpg');
+  /* background-image: url('../../assets/background.jpg'); */
+  background-color: #000;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   min-height: 100vh;

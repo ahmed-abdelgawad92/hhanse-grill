@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div id="menu-background" style="position: relative" v-if="menuItems">
-      <h1 class="h1">Mittagstisch</h1>
+    <div id="menu-background" style="position: relative; cursor: none !important;" v-if="menuItems">
+      <h1 class="h1">
+        <span>Mittagstisch</span>
+      </h1>
       <div id="menu">
         <div id="menu-item" v-for="(item, index) in menuItems" :key="item.name">
           <today-menu-item :item="item" :index="index"></today-menu-item>
@@ -46,7 +48,7 @@ export default {
   },
   mounted: function(){
     setInterval(()=>{
-      this.fetchMeals();;
+      this.fetchMeals();
     },60000);
   }
 }
@@ -63,9 +65,17 @@ h1{
   padding: 15px 0;
   text-align: center;
 }
+/* .h1 span{
+  padding: 20px 20px 40px 20px;
+  background-image: url('../../assets/wood_head.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #eee;
+} */
 #menu-background{
   padding-top: 50px;
-  background-image: url('../../assets/background.jpg');
+  /* background-image: url('../../assets/background.jpg'); */
+  background-color: #000;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   min-height: 100vh;

@@ -64,7 +64,7 @@
           Nein
         </label>
       </div>
-      <strong v-else>{{item.meal}}</strong>
+      <strong v-else>{{item.meal}}<font-awesome-icon icon="leaf" v-if="item.vegie" style="color: rgb(89, 255, 36)"/></strong>
     </div>
     <div class="col-3 text-muted">
       <div class="form-group" v-if="edit">

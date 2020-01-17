@@ -3,7 +3,7 @@
     <div class="col-10 py">
       <strong class="meal-name">{{item.meal}}</strong> 
       <span class="details">{{item.ingredient}}</span>
-      <font-awesome-icon icon="leaf" style="color: rgb(89, 255, 36)"/>
+      <font-awesome-icon icon="leaf" v-if="item.vegie" style="color: rgb(89, 255, 36)"/>
     </div>
     <div class="col-2 price">{{item.price | currency}}</div>
   </div>

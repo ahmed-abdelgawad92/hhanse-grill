@@ -1,5 +1,5 @@
 <template>
-  <div id="background" style="position: relative;" class="pb-3">
+  <div id="background" style="position: relative; cursor: none !important;" class="pb-3">
     <div class="px-4">
       <div class="row" v-if="categories">
         <template v-for="(category, index) in categories">

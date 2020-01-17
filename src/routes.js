@@ -17,6 +17,7 @@ import SecondPage from './components/karte/SecondPage.vue';
 import ThirdPage from './components/karte/ThirdPage.vue';
 import SlideShow from './components/slideshow/SlideShow.vue';
 import ClientPhotosAll from './components/admin/client-page/ClientPhotosAll.vue';
+import GenerateKarte from './components/admin/papier-karte/GenerateKarte.vue';
 import JWT from './jwt';
 
 Vue.use(VueRouter);
@@ -129,6 +130,11 @@ const routes = [
       {
         path: '/client/photos',
         component: ClientPhotosAll,
+        beforeEnter: checkAuthAdmin
+      },
+      {
+        path: '/generate_paper_menu',
+        component: GenerateKarte,
         beforeEnter: checkAuthAdmin
       },
     ]

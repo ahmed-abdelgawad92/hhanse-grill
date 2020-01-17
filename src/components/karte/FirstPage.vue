@@ -1,5 +1,5 @@
 <template>
-  <div id="background">
+  <div id="background" style="cursor: none !important;">
     <div class="px-4">
       <div class="row" v-if="categories">
         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
