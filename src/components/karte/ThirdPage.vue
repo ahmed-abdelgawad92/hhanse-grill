@@ -21,7 +21,8 @@
             <template v-if="categories[category] != undefined">
               <karte-category :category="categories[category]"></karte-category>
             </template>
-            <div class="row p-2" style="background: white;">
+          </div>
+            <div class="row p-2" style="background: white; font-weight:800">
               <ul class="col-6">
                 <li style="list-style: none"><strong>Zusatzstoffe:</strong></li>
                 <li>01. Sorbinsäure</li>
@@ -39,7 +40,6 @@
                 <li>17. mit Geschmacksverstärker</li>
               </ul>
             </div>
-          </div>
         </div>
       </div>
     </div>

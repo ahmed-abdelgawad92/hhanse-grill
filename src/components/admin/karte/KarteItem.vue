@@ -72,8 +72,10 @@
                v-model.trim="ingredient"
                placeholder="Beilage oder Zutaten">
         <br>
-        <label for="">Reihenfolge</label>
+        <label for="" class="text-dark">Reihenfolge</label>
         <input type="text" class="form-control" v-model.trim="order" placeholder="Reihenfolge">
+        <label for="" class="text-dark">Zusatzstoffe</label>
+        <input type="text" class="form-control" v-model.trim="zusatzstoffe" placeholder="Zusatzstoffe">
       </div>
       <template v-else>
         {{item.ingredient}}
@@ -125,6 +127,26 @@
       <span class="open-img" v-if="item.photo">
         <img class="img-btn mt-1" src="../../../assets/show_photo.png" @click="showPhoto">
       </span>
+      <div v-if="edit">
+        <br>
+        <label for="">Kategorie</label>
+        <select class="form-control" v-model="category">
+          <option value="">Wählen Sie zu welcher Abteilung das Gericht gehört</option>
+          <option value="Super-Spar-Menüs">Super-Spar-Menüs</option>
+          <option value="Croque">Croque</option>
+          <option value="Menü mit Pommes + Getränk (0,3 l)">Menü mit Pommes + Getränk (0,3 l)</option>
+          <option value="Grillplatten">Grillplatten</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Klassiker">Klassiker</option>
+          <option value="Grillgerichte">Grillgerichte</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Beilagen">Beilagen</option>
+          <option value="Salate">Salate</option>
+          <option value="Fisch">Fisch</option>
+          <option value="Getränke">Getränke</option>
+          <option value="Pasta">Pasta</option>
+        </select>
+      </div>
     </div>
   </div>
   <span class="invalid-feedback" v-if="!$v.price.required">Der Preis kann nicht leer sein.</span>
@@ -143,6 +165,8 @@
       return {
         meal: '',
         ingredient: '',
+        category: '',
+        zusatzstoffe: '',
         price: '',
         number: '',
         order: '',
@@ -168,6 +192,8 @@
             number: this.number,
             meal: this.meal, 
             ingredients: this.ingredient, 
+            zusatzstoffe: this.zusatzstoffe, 
+            category: this.category, 
             price: this.price, 
             item_order: this.order, 
             vegie: this.vegie
@@ -178,6 +204,8 @@
             this.item.number = this.number;
             this.item.meal = this.meal;
             this.item.ingredient = this.ingredient;            
+            this.item.category = this.category;            
+            this.item.zusatzstoffe = this.zusatzstoffe;            
             this.item.price = this.price;
             this.item.order_item = this.order;
             this.item.vegie = this.vegie;
@@ -240,6 +268,8 @@
     created(){
       this.meal = this.item.meal;
       this.ingredient = this.item.ingredient;
+      this.category = this.item.category;
+      this.zusatzstoffe = this.item.zusatzstoffe;
       this.price = this.item.price;
       this.number = this.item.number;
       this.order = this.item.item_order;

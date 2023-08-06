@@ -3,6 +3,7 @@
     <div class="col-10 py">
       <strong class="meal-name">{{item.meal}}</strong> 
       <span class="details">{{item.ingredient}}</span>
+      <span class="zusatzstoffe">{{item.zusatzstoffe}}</span>
       <font-awesome-icon icon="leaf" v-if="item.vegie" style="color: rgb(89, 255, 36)"/>
     </div>
     <div class="col-2 price">{{item.price | currency}}</div>
@@ -31,14 +32,17 @@
   text-shadow: 1px 1px black; */
 }
 .details{
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 800;
 }
+.zusatzstoffe{
+  font-size: 0.5rem;
+}
 .meal-name{
-  font-size: 20px;
+  font-size: 18px;
 }
 .price{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
 }
 .py{

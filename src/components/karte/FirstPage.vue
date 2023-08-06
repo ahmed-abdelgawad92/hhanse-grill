@@ -21,19 +21,23 @@
             <template v-if="categories[category] != undefined">
               <karte-category :category="categories[category]"></karte-category>
             </template>
-            <ul class="row py-3" style="background: white;">
+          </div>
+          <div class="px-2">
+            <ul class="row py-1" style="background: white; font-weight: 800;">
               <li>Alle Croques enthalten Gluten, Milch</li>
               <li>Zu jedem Croque gibt es Salat und Käse</li>
             </ul>
           </div>
         </div>
       </div>
+      <logo></logo>
     </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  import Logo from './logo.vue';
   import KarteCategory from './KarteCategory.vue';
   export default {
     data: () => {
@@ -51,32 +55,34 @@
         ],
         pane1: [
           'Klassiker',
-          'Fisch',
-          'Croque2',
         ],
         pane2: [
-          'Croque1',
+          'Croque',
         ],
         pane3: [
-          'Beilagen',
+          'Grillgerichte',
+          'Grillplatten',
         ]
       }
     },
     components: {
-      KarteCategory
+      KarteCategory,
+      Logo
     },
     methods: {
       fetchKarte: function(){
         axios.get('karte').then(response => {
           this.categories = response.data.karte;
+          console.log(this.categories);
+          
           // this.categories['Croque1'][0] = 'Croque'; 
           // this.categories['Croque2'][0] = 'Croque'; 
-          this.categories.Croque1 = [];
-          this.categories.Croque2 = [];
-          this.categories.Croque1.push('Croque');
-          this.categories.Croque2.push('Croque');
-          this.categories.Croque1.push(this.chunk(this.categories['Croque'][1],19)[0]);
-          this.categories.Croque2.push(this.chunk(this.categories['Croque'][1],19)[1]);
+          // this.categories.Croque1 = [];
+          // this.categories.Croque2 = [];
+          // this.categories.Croque1.push('Croque');
+          // this.categories.Croque2.push('');
+          // this.categories.Croque1.push(this.chunk(this.categories['Croque'][1],19)[0]);
+          // this.categories.Croque2.push(this.chunk(this.categories['Croque'][1],19)[1]);
           console.log(this.categories['Croque']);
           
         }).catch(err => {console.log(err)});

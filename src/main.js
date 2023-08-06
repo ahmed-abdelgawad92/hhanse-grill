@@ -7,10 +7,16 @@ import JWT from './jwt';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { BootstrapVue } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 library.add(faLeaf)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+// Install BootstrapVue
+Vue.use(BootstrapVue)
 
 axios.defaults.baseURL = 'https://api.hhansegrill-halal.de/api/';
 // axios.defaults.baseURL = 'http://hanse.ahmedelkayaty92.de/api/';
@@ -31,6 +37,8 @@ axios.interceptors.response.use(res => res, error => {
   }
   throw error;
 });
+
+Vue.prototype.$http = axios;
 
 Vue.filter('capitalize', value => {
   return value ? value.split(' ').map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(' ') : '';

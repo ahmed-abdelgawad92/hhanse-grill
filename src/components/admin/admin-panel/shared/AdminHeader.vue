@@ -15,6 +15,9 @@
         <router-link tag="li" to="/week-menu" class="nav-item" active-class="active" exact>
           <a class="nav-link">Wöchentlich-Speiseplan</a>
         </router-link>
+        <router-link tag="li" to="/slide-show/bearbeiten" class="nav-item" active-class="active" exact>
+          <a class="nav-link">Slideshow bearbeiten</a>
+        </router-link>
         <li ref="li_karte" class="nav-item" :class="{ 'active': isActiveKarte }">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Karte

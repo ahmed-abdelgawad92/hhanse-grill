@@ -2,16 +2,25 @@
   <div id="background" style="position: relative; cursor: none !important;" class="pb-3">
     <div class="px-4">
       <div class="row" v-if="categories">
-        <template v-for="(category, index) in categories">
-          <div :key="index" class="col-12 col-md-6 col-lg-6 col-xl-4">
-            <div class="px-2">
-              <karte-category :category="category"></karte-category>
-            </div>
-          </div>
-        </template>
         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
-          <div class="px-2">
-            <karte-category :category="klassiker"></karte-category>
+          <div v-for="(category, index) in pane1" :key="index" class="px-2">
+            <template v-if="categories[category] != undefined">
+              <karte-category :category="categories[category]"></karte-category>
+            </template>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+          <div v-for="(category, index) in pane2" :key="index" class="px-2">
+            <template v-if="categories[category] != undefined">
+              <karte-category :category="categories[category]"></karte-category>
+            </template>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+          <div v-for="(category, index) in pane3" :key="index" class="px-2">
+            <template v-if="categories[category] != undefined">
+              <karte-category :category="categories[category]"></karte-category>
+            </template>
           </div>
         </div>
       </div>
@@ -32,8 +41,20 @@
         klassiker: [],
         categoryIndex: [
           'Super-Spar-Menüs',
-          'Grillgerichte'
+          'Grillgerichte',
+          'Beilagen'
         ],
+        pane1: [
+          'Super-Spar-Menüs',
+          'Fisch'
+        ],
+        pane2: [
+          'Pasta',
+          'Menü mit Pommes + Getränk (0,3 l)',
+        ],
+        pane3: [
+          'Beilagen',
+        ]
       }
     },
     components: {
@@ -43,12 +64,9 @@
     },
     methods: {
       fetchKarte: function(){
-        axios.get('karte/get/'+this.categoryIndex[0]).then(response => {
-          this.categories = this.chunk(response.data.karte, 14);
-        }).catch(err => {console.log(err)});
-        axios.get('karte/get/'+this.categoryIndex[1]).then(response => {
-          this.klassiker.push(this.categoryIndex[1]);
-          this.klassiker.push(response.data.karte);
+        axios.get('karte').then(response => {
+          this.categories = response.data.karte;
+          
         }).catch(err => {console.log(err)});
       },
       chunk: function(arr, len) {

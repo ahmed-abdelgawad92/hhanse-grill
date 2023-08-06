@@ -1,6 +1,6 @@
 <template>
    <div>
-      <h4 class="rotate"><span>HH</span>anse Grill &reg;</h4>
+      <h4 class="rotate"><span>HH</span>anse Grill &reg; حلال</h4>
    </div>
 </template>
 

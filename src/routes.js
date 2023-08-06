@@ -18,6 +18,7 @@ import ThirdPage from './components/karte/ThirdPage.vue';
 import SlideShow from './components/slideshow/SlideShow.vue';
 import ClientPhotosAll from './components/admin/client-page/ClientPhotosAll.vue';
 import GenerateKarte from './components/admin/papier-karte/GenerateKarte.vue';
+import SlideShowAdmin from './components/admin/slide-show/SlideShowAdmin.vue';
 import JWT from './jwt';
 
 Vue.use(VueRouter);
@@ -135,6 +136,11 @@ const routes = [
       {
         path: '/generate_paper_menu',
         component: GenerateKarte,
+        beforeEnter: checkAuthAdmin
+      },
+      {
+        path: '/slide-show/bearbeiten',
+        component: SlideShowAdmin,
         beforeEnter: checkAuthAdmin
       },
     ]

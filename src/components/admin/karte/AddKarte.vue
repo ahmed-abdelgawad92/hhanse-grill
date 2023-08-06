@@ -32,6 +32,9 @@
             <option value="">Wählen Sie zu welcher Abteilung das Gericht gehört</option>
             <option value="Super-Spar-Menüs">Super-Spar-Menüs</option>
             <option value="Croque">Croque</option>
+            <option value="Menü mit Pommes + Getränk (0,3 l)">Menü mit Pommes + Getränk (0,3 l)</option>
+            <option value="Grillplatten">Grillplatten</option>
+            <option value="Pasta">Pasta</option>
             <option value="Klassiker">Klassiker</option>
             <option value="Grillgerichte">Grillgerichte</option>
             <option value="Snacks">Snacks</option>
